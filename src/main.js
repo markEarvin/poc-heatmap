@@ -47,7 +47,8 @@ app.main = function main() {
   cartodb.createLayer(map, 'https://markearvin.cartodb.com/api/v2/viz/ccbc5106-6b40-11e5-b790-0e3ff518bd15/viz.json')
   .addTo(map)
   .on('done', function(layer) {
-     var subLayerOptions = { sql: "SELECT * FROM pointsa"};
+
+      var subLayerOptions = { sql: "SELECT * FROM pointsa"};
       var sublayer = layer.getSubLayer(0);
       sublayer.set(subLayerOptions);
       sublayers.push(sublayer);
