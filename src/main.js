@@ -70,8 +70,8 @@ app.main = function main() {
     {lat: 32.321, lng: -64.757},
     {lat: 25.774, lng: -80.190}
   ];
-  var polygon = new app.Polygon(map);
-  polygon.addPolygon(triangleCoords);
+  var polygons = new app.Polygons(map);
+  polygons.addPolygon(triangleCoords);
 
   };
 

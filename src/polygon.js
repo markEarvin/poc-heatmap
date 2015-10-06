@@ -1,6 +1,6 @@
 "use strict";
 
-app.Polygon = function(map){
+app.Polygons = function(map){
     var self = this;
     self.map = map;
     self.locations = [];
@@ -14,11 +14,11 @@ app.Polygon = function(map){
     };
 };
 
-app.Polygon.prototype.logMe = function() {
+app.Polygons.prototype.logMe = function() {
     console.log("Hello map!");
 };
 
-app.Polygon.prototype.addPolygon = function(geopoints){
+app.Polygons.prototype.addPolygon = function(geopoints){
     console.log("Adding polygon...");
     var self = this;
     // console.log(geopoints.toString());
@@ -37,7 +37,18 @@ app.Polygon.prototype.addPolygon = function(geopoints){
     return loc.getId();
 };
 
-app.Polygon.prototype.setColor = function(colorCode, polyId){
+app.Polygons.prototype.setColor = function(colorCode, polyId){
     var poly = app.Location.get(polyId);
     poly.setOptions({fillColor: colorCode});
+};
+
+app.Polygons.prototype.show = function(polyId){
+    var self = this;
+    var poly = app.Location.get(polyId);
+    poly.setMap(self.map);
+};
+
+app.Polygons.prototype.hide = function(polyId){
+    var poly = app.Location.get(polyId);
+    poly.setMap(null);
 };
